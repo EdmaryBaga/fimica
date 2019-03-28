@@ -12,9 +12,11 @@ import java.util.ArrayList;
 public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmHolder> {
 
     private ArrayList<Film> films;
+    private OnItemClickListener listener;
 
-    public FilmsAdapter() {
+    public FilmsAdapter(OnItemClickListener listener) {
         this.films = new ArrayList<>();
+        this.listener = listener;
     }
 
     @NonNull
@@ -46,13 +48,26 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmHolder> 
 
     class FilmHolder extends RecyclerView.ViewHolder {
 
+        private Film film;
+
         FilmHolder(View view) {
             super(view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FilmsAdapter.this.listener.onItemClick(film);
+                }
+            });
         }
 
         void setFilm(Film film) {
+            this.film = film;
             ((TextView)this.itemView).setText(film.getTitle());
         }
 
+    }
+
+    interface OnItemClickListener {
+        void onItemClick(Film film);
     }
 }
