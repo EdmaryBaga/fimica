@@ -19,19 +19,6 @@ public class DetailsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_details, container, false);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        Button button = view.findViewById(R.id.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onClick();
-            }
-        });
-    }
-
     public void setOnClickListener(OnFragmentClickListener listener) {
         this.listener = listener;
     }

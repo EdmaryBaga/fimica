@@ -12,15 +12,11 @@ public class FilmsActivity extends AppCompatActivity implements DetailsFragment.
         setContentView(R.layout.activity_films);
 
         if (savedInstanceState == null) {
-            FilmsFragment filmsFragment = new FilmsFragment();
-            DetailsFragment detailsFragment = new DetailsFragment();
-
-            detailsFragment.setOnClickListener(this);
+            FilmsFragment fragment = FilmsFragment.newInstance("Hello World");
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.container_a, detailsFragment)
-                    .add(R.id.container_b, filmsFragment)
+                    .add(R.id.container, fragment)
                     .commit();
         }
     }
