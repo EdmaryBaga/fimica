@@ -1,4 +1,6 @@
-package io.bunsan.filmica;
+package io.bunsan.filmica.model;
+
+import com.google.gson.annotations.SerializedName;
 
 public class Film {
 

@@ -1,8 +1,10 @@
-package io.bunsan.filmica;
+package io.bunsan.filmica.films;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import io.bunsan.filmica.detail.DetailsFragment;
+import io.bunsan.filmica.R;
 
 public class FilmsActivity extends AppCompatActivity implements DetailsFragment.OnFragmentClickListener {
 
