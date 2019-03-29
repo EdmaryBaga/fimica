@@ -8,7 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import io.bunsan.filmica.R;
+import io.bunsan.filmica.model.Film;
 import io.bunsan.filmica.model.FilmsRepo;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import java.util.ArrayList;
 
 public class FilmsFragment extends Fragment {
 
@@ -47,6 +53,16 @@ public class FilmsFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        FilmsRepo.getInstance().getFilms();
+        FilmsRepo.getInstance().getFilms(new Callback<ArrayList<Film>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Film>> call, Response<ArrayList<Film>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Film>> call, Throwable t) {
+
+            }
+        });
     }
 }

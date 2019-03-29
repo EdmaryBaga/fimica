@@ -35,17 +35,7 @@ public class FilmsRepo {
         client = retrofit.create(FilmicaApi.class);
     }
 
-    public void getFilms() {
-        this.client.getFilms().enqueue(new Callback<ArrayList<Film>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Film>> call, Response<ArrayList<Film>> response) {
-                Log.d("Request", response.toString());
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<Film>> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
+    public void getFilms(Callback<ArrayList<Film>> callback) {
+        this.client.getFilms().enqueue(callback);
     }
 }
