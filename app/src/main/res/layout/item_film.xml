@@ -1,11 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          tools:text="Title"
-          android:textStyle="bold"
-          android:textSize="18sp"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="156dp"
 >
 
-</TextView>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="@color/colorPrimary"
+    />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/margin"
+            android:background="@color/colorPrimaryDark"
+    >
+
+        <TextView
+                android:id="@+id/label_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                tools:text="Title"
+        />
+
+        <TextView
+                android:id="@+id/label_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label_title"
+                android:textColor="@android:color/white"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/label_rating"
+                android:layout_toStartOf="@+id/label_rating"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Genre"
+        />
+
+        <TextView
+                android:id="@+id/label_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/label_genre"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textColor="@android:color/white"
+                android:maxLines="1"
+                android:drawableStart="@drawable/ic_rating"
+                android:drawableLeft="@drawable/ic_rating"
+                android:drawablePadding="8dp"
+                tools:text="0.0"
+        />
+
+    </RelativeLayout>
+
+</FrameLayout>
