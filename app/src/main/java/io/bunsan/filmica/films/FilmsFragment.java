@@ -64,7 +64,7 @@ public class FilmsFragment extends Fragment implements FilmsAdapter.OnItemClickL
 
             @Override
             public void onFailure(Call<ArrayList<Film>> call, Throwable t) {
-
+                t.printStackTrace();
             }
         });
     }

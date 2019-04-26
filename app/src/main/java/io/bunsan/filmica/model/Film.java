@@ -2,12 +2,14 @@ package io.bunsan.filmica.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Film {
 
     private String title;
     private String overview;
     private float rating;
-    private String genre;
+    private ArrayList<Genre> genres;
     private String date;
     private String url;
 
@@ -15,16 +17,16 @@ public class Film {
         this.title = "";
         this.overview = "";
         this.rating = 0.0f;
-        this.genre = "";
+        this.genres = new ArrayList<>();
         this.date = "";
         this.url = "";
     }
 
-    public Film(String title, String overview, float rating, String genre, String date, String url) {
+    public Film(String title, String overview, float rating, ArrayList<Genre> genres, String date, String url) {
         this.title = title;
         this.overview = overview;
         this.rating = rating;
-        this.genre = genre;
+        this.genres = genres;
         this.date = date;
         this.url = url;
     }
@@ -53,12 +55,12 @@ public class Film {
         this.rating = rating;
     }
 
-    public String getGenre() {
-        return genre;
+    public ArrayList<Genre> getGenres() {
+        return genres;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenres(ArrayList<Genre> genres) {
+        this.genres = genres;
     }
 
     public String getDate() {

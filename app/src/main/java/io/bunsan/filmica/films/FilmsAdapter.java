@@ -64,7 +64,8 @@ public class FilmsAdapter extends RecyclerView.Adapter<FilmsAdapter.FilmHolder> 
 
         void setFilm(Film film) {
             this.film = film;
-            ((TextView)this.itemView).setText(film.getTitle());
+            ((TextView)this.itemView.findViewById(R.id.label_title)).setText(film.getTitle());
+            ((TextView)this.itemView.findViewById(R.id.label_genre)).setText(film.getGenres().get(0).getName());
         }
 
     }

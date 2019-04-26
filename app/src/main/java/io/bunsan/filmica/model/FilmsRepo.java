@@ -1,5 +1,7 @@
 package io.bunsan.filmica.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,9 +22,12 @@ public class FilmsRepo {
     }
 
     private FilmsRepo() {
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Genre.class, new GenreDeserializer());
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://5c9e63d1595c55001487bf09.mockapi.io/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(builder.create()))
                 .build();
 
         client = retrofit.create(FilmicaApi.class);
